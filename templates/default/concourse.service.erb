@@ -1,0 +1,20 @@
+[Unit]
+Description=concourse
+After=syslog.target network.target
+
+[Service]
+WorkingDirectory=<%= @app_dir %>
+ExecStart=<%= @app_dir %>/concourse web \
+      --development-mode \
+      --basic-auth-username myuser \
+      --basic-auth-password mypass \
+      --session-signing-key session_signing_key \
+      --tsa-host-key host_key \
+      --tsa-authorized-keys authorized_worker_keys \
+      --postgres-data-source postgres://postgres:<%= node['postgresql']['password']['postgres'] %>@127.0.0.1/atc \
+      --external-url <%= node['concourse']['external']['url'] %> \
+      | sudo tee /var/log/concourse 2>&1 &
+ExecStop=/usr/bin/kill $(ps aux | grep '[/]<%= @app_dir %>/concourse | awk '{print $2}')
+
+[Install]
+WantedBy=multi-user.target
