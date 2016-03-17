@@ -6,7 +6,7 @@ description      'Installs concourse for Vagrant currently'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.0.1'
 
-supports         'centos'
+supports         'centos', '>= 7.0'
 
-depends          'database'
-depends          'iptables'
+depends          'database', '~> 4.0'
+depends          'iptables', '~> 2.2'
