@@ -4,11 +4,7 @@ This is in the very beginning stages proceed with caution.
 
 The cookbook is standing up a Vagrant CentOS box running concourse as a service.
 
-After vagrant up concourse will be running at 192.168.50.250:8080 but the basic auth link is forwarding to wrong uri.
-
-I've submitted Issue with concourse/bin: https://www.pivotaltracker.com/story/show/115831799
-
-For now to authenticate navigate to http://192.168.50.250:8080/login/basic
+After vagrant up concourse will be running at 192.168.50.205:8080
 
 User: myuser
 Pass: mypass
