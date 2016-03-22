@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
     chef.json = {
       'concourse' =>{
         'external' => {
-          'url' => 'http://192.168.50.250:8080'
+          'url' => 'http://192.168.50.205:8080'
         }
       },
       'postgresql' => {
