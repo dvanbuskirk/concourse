@@ -8,7 +8,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-default['concourse']['version'] = '0.75.0'
+default['concourse']['version'] = '0.76.0'
 default['concourse']['download']['url'] =
   "https://github.com/concourse/concourse/releases/download/v#{concourse['version']}/concourse_linux_amd64"
 default['concourse']['home']['directory'] = '/usr/local/bin'
