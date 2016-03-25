@@ -9,14 +9,12 @@ After vagrant up concourse will be running at 192.168.50.205:8080
 User: myuser
 Pass: mypass
 
-I've also seen some intermittent issues with the iptables service restart, if you encounter this failure just run vagrant provision.
-
 ##Todo list is very long but here is my next 4 items coming up. 
 
 * Add chefspec tests
 * Get this building in TravisCI
 * Add test kitchen
-* Add lwrp for flycli with some very basic resources
+* Add lwrp for flycli with some very basic resources (in progress)
 
 ## Contributing
 

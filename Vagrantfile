@@ -13,6 +13,9 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.add_recipe "minitest-handler"
     chef.add_recipe "concourse::default"
+    chef.add_recipe "concourse::fly_install"
+    chef.add_recipe "concourse::set_pipelines"
+    chef.log_level = 'debug'
     chef.json = {
       'concourse' =>{
         'external' => {
