@@ -62,10 +62,21 @@ end
 
 app_dir = node['concourse']['home']['directory']
 
-include_recipe 'iptables'
+case node['platform_family']
+  when 'debian'
+    include_recipe 'iptables'
 
-iptables_rule 'http_8080' do
-  action :enable
+    iptables_rule 'http_8080' do
+      action :enable
+      not_if { ::File.exists?('/etc/iptables.d/http_8080') }
+    end
+  when 'rhel'
+    include_recipe 'firewalld'
+
+    firewalld_port '8080/tcp' do
+      action :add
+      zone   'public'
+    end
 end
 
 file '/var/log/concourse'
@@ -87,6 +98,8 @@ remote_file "#{app_dir}/concourse" do
   mode '0755'
   action :create
   notifies :run, 'script[generate ssh keys]', :immediately
+  notifies :restart, 'service[concourse]', :immediately
+  notifies :enable, 'service[concourse]', :delayed
 end
 
 script 'generate ssh keys' do
@@ -102,5 +115,5 @@ script 'generate ssh keys' do
 end
 
 service 'concourse' do
-  action [:enable, :restart]
+  action :start
 end

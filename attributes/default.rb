@@ -12,7 +12,12 @@ default['concourse']['version'] = '0.75.0'
 default['concourse']['download']['url'] =
   "https://github.com/concourse/concourse/releases/download/v#{concourse['version']}/concourse_linux_amd64"
 default['concourse']['home']['directory'] = '/usr/local/bin'
+default['concourse']['external']['url'] = 'http://127.0.0.1:8080'
 
+# You have to download fly manually and store in some shared location
+# Improvement: https://www.pivotaltracker.com/story/show/115872395
+default['concourse']['fly']['download']['url'] = 'https://yum.ijetonboard.com/repos/ijet_3rd_party_deps/fly'
 
+# postgresql cookbook attributes
 default['postgresql']['version'] = '9.4'
 override['postgresql']['config']['ssl'] = true
