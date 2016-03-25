@@ -18,7 +18,7 @@ Pass: mypass
 * Add chefspec tests
 * Get this building in TravisCI
 * Add test kitchen
-* Add lwrp for flycli with some very basic resources (in progess)
+* Add lwrp for flycli with some very basic resources (in progress)
 
 ## Contributing
 
