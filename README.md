@@ -16,6 +16,14 @@ Pass: mypass
 * Add test kitchen
 * Add lwrp for flycli with some very basic resources (in progress)
 
+| Attribute | Description | Default | Type | Required | 
+| ------------- | ----------- | ----------- | ----------- |----------- |
+| ['concourse']['version'] | Version of Concourse CI | 1.0.0 | string | yes |
+| ['concourse']['download']['url'] | URL to Concourse binary | https://github.com/concourse/concourse/releases/download/v#{concourse['version']}/concourse_linux_amd64 | string | yes |
+| ['concourse']['home']['directory'] | Directory to store Concourse binary | /usr/local/bin | string | yes |
+| ['concourse']['external']['url'] | URL used to connect to Concourse CI | http://127.0.0.1:8080 | string | yes |
+| ['concourse']['fly']['download']['url']| URL to fly binary | https://github.com/concourse/fly/issues/65 | string | no |
+
 ## Contributing
 
 1. Fork the repository on Github
